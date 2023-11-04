@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="hlavni-obrazek" src="učebna1.png" width="727" height="572" alt="Místnost" usemap="#mistnost-map">
+        <map name="mistnost-map">
+            <area shape="rect" coords="390, 437, 465, 497" href="sešit.pdf"> 
+            <area shape="rect" coords="407, 167, 528, 294" href="#" id="zmena-obrazku3"> <!--funční tři učebnyecg tabule-->
+            <area shape="rect" coords="501, 438, 514, 448" href="#" id="zmena-obrazku1"> <!--hotovo s pero-->
+            <area shape="rect" coords="333, 345, 383, 381" href="jpg2pdf.pdf"> <!--funční větší kniha fantastiká zvířata-->
+        </map>   
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const oblast1 = document.getElementById('zmena-obrazku1');
+            const oblast3 = document.getElementById('zmena-obrazku3');
+            const hlavniObrazek = document.getElementById('hlavni-obrazek');
+            var mojePole = ["učebnac.png", "učebnae.png", "učebnag.png"];
+            
+            function nahodnyPrvek(pole) {
+                var nahodnyIndex = Math.floor(Math.random() * pole.length);
+                return pole[nahodnyIndex];
+            }
+
+            oblast1.addEventListener('click', function () {
+                // Změňte obrázek na první obrázek
+                hlavniObrazek.src = 'učebnas.png';
+            });
+
+            oblast3.addEventListener('click', function () {
+                // Změňte obrázek na náhodný obrázek z pole
+                hlavniObrazek.src = nahodnyPrvek(mojePole);
+            });
+        });
+    </script>
+</body>
+</html>
